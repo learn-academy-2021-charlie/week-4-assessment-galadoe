@@ -27,7 +27,27 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
 
 // b) Create the function that makes the test pass.
 
-//create
+//create a function - shuffle
+//empty arr
+//loops through the arr
+//during the loop, removes the first item in the arr
+// call the Math and randomly sort the remaining content
+//the empty arr is return with the shuffled arr
+
+const shuffle = (arr) => {
+  // let shuffArr = []
+  let removedFirst = arr.slice(1)
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] == removedFirst[i]){
+      removedFirst = removedFirst.sort(() => Math.random() - 0.5)
+    }
+  }
+  return removedFirst.sort(() => Math.random() - 0.5)
+}
+console.log(shuffle(colors1));
+console.log(shuffle(colors2));
+
+
 
 
 // --------------------2) Create a function that takes an array of numbers and returns an array of the minimum and maximum numbers in that order.
@@ -72,14 +92,14 @@ const minMax = (num) => {
 
 // a) Create a test with an expect statement using the variables provided.
 
-describe("noRepeat", () => {
-  test("returns one array with no duplicate", () => {
-    expect(noRepeat(testArray1, testArray2)).toEqual([3, 7, 10, 5, 4, 8, 2, 1])
-  })
-})
-var testArray1 = [3, 7, 10, 5, 4, 3, 3]
-var testArray2 = [7, 8, 2, 3, 1, 5, 4]
-// Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
+// describe("noRepeat", () => {
+//   test("returns one array with no duplicate", () => {
+//     expect(noRepeat(testArray1, testArray2)).toEqual([3, 7, 10, 5, 4, 8, 2, 1])
+//   })
+// })
+// var testArray1 = [3, 7, 10, 5, 4, 3, 3]
+// var testArray2 = [7, 8, 2, 3, 1, 5, 4]
+// // Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
 
 
 
@@ -93,15 +113,14 @@ var testArray2 = [7, 8, 2, 3, 1, 5, 4]
 //if there is a duplicate, return one
 //push the final array w/ no duplicate
 
-const noRepeat = (arr1, arr2) => {
-  let newArr = []
-  let joinedArr = arr1.concat(arr2)
-
-  for(let i = 0; i < joinedArr.length; i++){
-    if(joinedArr[i] != joinedArr[i]){
-      newArr.push(joinedArr[i])
-    }
-  }
-  return newArr
-
-}
+// const noRepeat = (arr1, arr2) => {
+//   let newArr = []
+//   let joinedArr = arr1.concat(arr2)
+//
+//   for(let i = 0; i < joinedArr.length; i++){
+//     if(joinedArr[i] != joinedArr[i]){
+//       newArr.push(joinedArr[i])
+//     }
+//   }
+//   return newArr
+// }
