@@ -9,6 +9,16 @@ letter_o = 'o'
 letter_t = 't'
 # Expected output: ['tea', 'water', 'soda water']
 
+def letter arr
+    arr.each do |value|
+      if value.include?'o'
+        value
+      elsif value.include?'t'
+        value
+      end
+    end
+end
+p letter beverages_array
 
 
 # -------------------2) Create a method that takes in a string and removes all the vowels from the string. Use the test variables provided. HINT: Check out this resource: https://ruby-doc.org/core-2.6/String.html#method-i-delete
@@ -19,7 +29,12 @@ album2 = 'Sgt Pepper'
 # Expected output: 'Sgt Pppr'
 album3 = 'Abbey Road'
 # Expected output: 'bby Rd'
-
+def noVowel str
+  str.delete "aeiouAEIOU"
+end
+p noVowel album1
+p noVowel album2
+p noVowel album3
 
 
 # --------------------3a) Create a class called Bike that is initialized with a model, wheels, and current_speed. The default number of wheels is 2. The current_speed should start at 0. Create a get_info method that returns a sentence with all the data from the bike object.

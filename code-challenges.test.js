@@ -18,6 +18,11 @@
 
 // a) Create a test with an expect statement using the variable provided.
 
+describe("shuffle", () => {
+  test("removes 1st item and shuffles the rest", () => {
+    expect(shuffle(colors1)).
+  })
+})
 var colors1 = ["purple", "blue", "green", "yellow", "pink"]
 // Expected output example (can be a different order): ["yellow", "blue", "pink", "green"]
 var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
@@ -44,6 +49,7 @@ const shuffle = (arr) => {
   }
   return removedFirst.sort(() => Math.random() - 0.5)
 }
+//line 41 and 45 are weird! Program-wise I don't understand why its working b/c it looks very weird. Logic-wise to some degree I understand why its working
 console.log(shuffle(colors1));
 console.log(shuffle(colors2));
 
@@ -56,8 +62,8 @@ console.log(shuffle(colors2));
 
 describe("minMax", () => {
   test("returns an array of min & max num in that order", () => {
-    expect(minMax(nums1)).toEqual([3, 56, 90, -8, 0, 23, 6])
-    expect(minMax(nums2)).toEqual([109, 5, 9, 67, 8, 24])
+    expect(minMax(nums1)).toEqual([-8, 90])
+    expect(minMax(nums2)).toEqual([5, 109])
   })
 })
 
@@ -65,7 +71,6 @@ var nums1 = [3, 56, 90, -8, 0, 23, 6]
 // Expected output: [-8, 90]
 var nums2 = [109, 5, 9, 67, 8, 24]
 // Expected output: [5, 109]
-
 
 
 // b) Create the function that makes the test pass.
@@ -80,13 +85,14 @@ var nums2 = [109, 5, 9, 67, 8, 24]
 const minMax = (num) => {
   let newNum = []
   for(let i = 0; i < num.length; i++){
-    newNum = num.slice().sort((a,b) => a - b)
-    if(num[i] == num[i])
-
-      console.log(newNum);
+    if(num[i] == Math.max(num[i]) || num[i] == Math.min(num[i])){
+      newNum = num[i]
+    }
   }
   return newNum
 }
+console.log(minMax(nums1));
+console.log(minMax(nums2));
 
 // --------------------3) Create a function that takes in two arrays as arguments and returns one array with no duplicate values. STRETCH: Use the spread operator to pass in a dynamic number of arguments.
 
