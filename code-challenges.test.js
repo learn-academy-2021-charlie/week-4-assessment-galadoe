@@ -50,7 +50,6 @@ console.log(shuffle(colors2));
 
 
 
-
 // --------------------2) Create a function that takes an array of numbers and returns an array of the minimum and maximum numbers in that order.
 
 // a) Create a test with expect statements for each of the variables provided.
@@ -72,10 +71,8 @@ var nums2 = [109, 5, 9, 67, 8, 24]
 
 //create a function - minMax
 //parameter - num
-//empty array
-//for loop to iterate through the arrays
-//looks for the least and greatest
-//push the final array w/ the least and greatest
+//create a var and assign the min & max
+//return that var sorted from least to greatest
 
 const minMax = (num) => {
   let newNum = [Math.min(...num), Math.max(...num)]
