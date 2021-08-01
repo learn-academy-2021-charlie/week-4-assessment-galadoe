@@ -34,25 +34,19 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
 // b) Create the function that makes the test pass.
 
 //create a function - shuffle
-//empty arr
-//loops through the arr
-//during the loop, removes the first item in the arr
-// call the Math and randomly sort the remaining content
-//the empty arr is return with the shuffled arr
+// create a variable
+//takes the first item off (use a built in method) and assign to variable
+// randomly sort
+// return the variable
 
 const shuffle = (arr) => {
-  // let shuffArr = []
-  let removedFirst = arr.slice(1)
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] == removedFirst[i]){
-      removedFirst = removedFirst.sort(() => Math.random() - 0.5)
-    }
-  }
-  return removedFirst.sort(() => Math.random() - 0.5)
+  newArr = arr.slice(1)
+  return newArr.sort(() => Math.random() - 0.5)
 }
-//line 41 and 45 are weird! Program-wise I don't understand why its working b/c it looks very weird. Logic-wise to some degree I understand why its working
+
 console.log(shuffle(colors1));
 console.log(shuffle(colors2));
+
 
 
 
@@ -84,14 +78,10 @@ var nums2 = [109, 5, 9, 67, 8, 24]
 //push the final array w/ the least and greatest
 
 const minMax = (num) => {
-  let newNum = []
-  for(let i = 0; i < num.length; i++){
-    if(num[i] == Math.max(num[i]) || num[i] == Math.min(num[i])){
-      newNum.push(num[i])
-    }
-  }
-  return newNum
+  let newNum = [Math.min(...num), Math.max(...num)]
+  return newNum.sort((b, a) => b - a)
 }
+
 console.log(minMax(nums1));
 console.log(minMax(nums2));
 
@@ -99,14 +89,14 @@ console.log(minMax(nums2));
 
 // a) Create a test with an expect statement using the variables provided.
 
-// describe("noRepeat", () => {
-//   test("returns one array with no duplicate", () => {
-//     expect(noRepeat(testArray1, testArray2)).toEqual([3, 7, 10, 5, 4, 8, 2, 1])
-//   })
-// })
-// var testArray1 = [3, 7, 10, 5, 4, 3, 3]
-// var testArray2 = [7, 8, 2, 3, 1, 5, 4]
-// // Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
+describe("noRepeat", () => {
+  test("returns one array with no duplicate", () => {
+    expect(noRepeat(testArray1, testArray2)).toEqual([3, 7, 10, 5, 4, 8, 2, 1])
+  })
+})
+var testArray1 = [3, 7, 10, 5, 4, 3, 3]
+var testArray2 = [7, 8, 2, 3, 1, 5, 4]
+// Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
 
 
 
@@ -116,18 +106,13 @@ console.log(minMax(nums2));
 //parameter - two arrays
 //empty array
 //join the arrays together
-//for loop to iterate through the arrays
+//for loop to iterate through the arrays (or use a built-in method)
 //if there is a duplicate, return one
 //push the final array w/ no duplicate
 
-// const noRepeat = (arr1, arr2) => {
-//   let newArr = []
-//   let joinedArr = arr1.concat(arr2)
-//
-//   for(let i = 0; i < joinedArr.length; i++){
-//     if(joinedArr[i] != joinedArr[i]){
-//       newArr.push(joinedArr[i])
-//     }
-//   }
-//   return newArr
-// }
+const noRepeat = (arr1, arr2) => {
+  let newArr = arr1.concat(arr2)
+  return newArr.filter((value, index) => {
+    return newArr.indexOf(value) === index;
+  })
+}
