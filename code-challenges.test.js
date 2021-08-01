@@ -17,10 +17,11 @@
 // --------------------1) Create a function that takes in an array, removes the first item from the array and shuffles the remaining content.
 
 // a) Create a test with an expect statement using the variable provided.
-
+//check the lengths are not the same after it has been shuffled
 describe("shuffle", () => {
   test("removes 1st item and shuffles the rest", () => {
-    expect(shuffle(colors1)).
+    expect(shuffle(colors1)).not.toEqual(["blue", "green", "yellow", "pink"])
+    expect(shuffle(colors2)).not.toEqual(["indigo", "periwinkle", "ochre", "aquamarine", "saffron"])
   })
 })
 var colors1 = ["purple", "blue", "green", "yellow", "pink"]
@@ -86,7 +87,7 @@ const minMax = (num) => {
   let newNum = []
   for(let i = 0; i < num.length; i++){
     if(num[i] == Math.max(num[i]) || num[i] == Math.min(num[i])){
-      newNum = num[i]
+      newNum.push(num[i])
     }
   }
   return newNum
