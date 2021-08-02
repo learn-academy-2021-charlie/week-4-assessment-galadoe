@@ -15,7 +15,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
 2. What is a block in Ruby?
 
-  Your answer: a block in ruby is a method that is iterable
+  Your answer: a block in ruby is a method that is iterable. In order to use a block in ruby you need to use do/end.
 
   Researched answer: A Ruby block is a way of grouping statements, and may appear only in the source adjacent to a method call
 
@@ -23,7 +23,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
 3. Ruby has an implicit return. What does that mean?
 
-  Your answer: it doesn't have have a 'return', but end
+  Your answer: it doesn't have have a 'return', but end. Instead of returning a value, you can just you 'end'
 
   Researched answer: Every block in ruby will return the value of the last line automatically
 

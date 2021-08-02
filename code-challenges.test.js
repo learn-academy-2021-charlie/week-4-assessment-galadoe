@@ -20,6 +20,7 @@
 //check the lengths are not the same after it has been shuffled
 describe("shuffle", () => {
   test("removes 1st item and shuffles the rest", () => {
+    // expect(shuffle(colors1.length)).toEqual(4)
     expect(shuffle(colors1)).not.toEqual(["blue", "green", "yellow", "pink"])
     expect(shuffle(colors2)).not.toEqual(["indigo", "periwinkle", "ochre", "aquamarine", "saffron"])
   })
@@ -29,7 +30,7 @@ var colors1 = ["purple", "blue", "green", "yellow", "pink"]
 var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]
 // Expected output example (can be a different order): ["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]
 
-
+//where would be the proper place to declare our varible when testing (declare on global scope?)
 
 // b) Create the function that makes the test pass.
 
@@ -40,13 +41,15 @@ var colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saf
 // return the variable
 
 const shuffle = (arr) => {
-  newArr = arr.slice(1)
+  // let arrLen = arr.length
+  // console.log(arrLen.length, "this is the length");
+  let newArr = arr.slice(1)
+  // console.log(newArr.length, "length after slice");
   return newArr.sort(() => Math.random() - 0.5)
 }
 
 console.log(shuffle(colors1));
 console.log(shuffle(colors2));
-
 
 
 

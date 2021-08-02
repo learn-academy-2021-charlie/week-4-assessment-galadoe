@@ -14,17 +14,25 @@ letter_t = 't'
 #iterate through and checks for 'o' && 't'
 #if its 'o' return just the words with o
 #else if its 't' return just the word with t
-def letter arr
+def letter_o arr
     arr.each.select do |value|
       if value.include?'o'
         value
       end
-      if value.include?'t'
-        value
-      end
     end
 end
-p letter beverages_array
+p letter_o beverages_array
+
+ #I decided to create diff function b/c this was the only I was able to get both of the outputs back. If I had another option, I wouldv'e created a class and inside that class create two separate functions to return what I need
+
+def letter_t arr
+  arr.select do |value|
+    if value.include?'t'
+      value
+    end
+  end
+end
+p letter_t beverages_array
 #when I create an if/else statement, it returns everything but juice
 #when I do two ifs statements, it returns one array, but its the first conditon, but the second one. If I write
 # if value.include?'o'
@@ -59,18 +67,22 @@ p noVowel album3
 class Bike
   attr_accessor :model, :wheels, :current_speed
 
-  def initialize(model, wheels, current_speed)
+  def initialize model
     @model = model
     @wheels = 2
     @current_speed = 0
   end
 
-  def pedal_faster
-      @current_speed += 10
+  def pedal_faster speed
+      @current_speed = speed
   end
 
-  def brake
-      @current_speed -= current_speed
+  def brake speed
+    if speed >= @current_speed
+      @current_speed = 0
+    elsif speed < @current_speed
+      @current_speed -= speed
+    end
   end
 
   def get_info
@@ -78,16 +90,16 @@ class Bike
   end
 end
 
-type = Bike.new("Trek Bike", "0", "0")
+type = Bike.new("Trek Bike")
 p type.get_info
 
 
 
 # -------------------3b) Add the ability to pedal faster and brake. The pedal_faster method should increase the speed. The brake method should decrease the speed. The bike cannot go negative speeds.
 
-my_bike = Bike.new("Trek Bike", "0", "0")
-p my_bike.pedal_faster
-p my_bike.brake
+my_bike = Bike.new("Trek Bike")
+p my_bike.pedal_faster 10
+p my_bike.brake 15
 
 # Expected output example: my_bike.pedal_faster 10 => 10
 # Expected output example: my_bike.brake 15 => 0
